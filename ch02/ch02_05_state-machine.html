@@ -54,6 +54,7 @@
       iboUsage = 0,
       isVerticesVbo = false,
       isConeVertexBufferVbo = false,
+      isBuffer,
       projectionMatrix = mat4.create(),
       modelViewMatrix = mat4.create();
 
@@ -157,6 +158,8 @@
         iboName = 'coneIndexBuffer';
       }
 
+      isBuffer = gl.isBuffer(coneIndexBuffer)
+
       vboSize = gl.getBufferParameter(gl.ARRAY_BUFFER, gl.BUFFER_SIZE);
       vboUsage = gl.getBufferParameter(gl.ARRAY_BUFFER, gl.BUFFER_USAGE);
 
@@ -216,6 +219,7 @@
       document.getElementById('t-ibo-usage').innerText = iboUsage;
       document.getElementById('s-is-vertices-vbo').innerText = isVerticesVbo ? 'Yes' : 'No';
       document.getElementById('s-is-cone-vertex-buffer-vbo').innerText = isConeVertexBufferVbo ? 'Yes' : 'No';
+      document.getElementById('s-is-cone-index-buffer-wb').innerText = isBuffer ? 'Yes' : 'No';
     }
 
     function init() {
@@ -270,6 +274,7 @@
     <ul>
       <li>Is vertices a VBO? <strong id="s-is-vertices-vbo"></strong></li>
       <li>Is coneVertexBuffer a VBO? <strong id="s-is-cone-vertex-buffer-vbo"></strong></li>
+      <li>Is coneIndexBuffer a WebGL buffer? <strong id="s-is-cone-index-buffer-wb"></strong></li>
     </ul>
   </div>
 
