@@ -129,7 +129,7 @@
     }
 
     function initLights() {
-      gl.uniform3fv(program.uLightDirection, lightDirection);
+      gl.uniform3fv(program.uLightDirection, [-1, 1, 0]);
       gl.uniform3fv(program.uLightDiffuse, lightDiffuseColor);
       gl.uniform3fv(program.uMaterialDiffuse, sphereColor);
     }
@@ -187,7 +187,7 @@
       mat4.translate(modelViewMatrix, modelViewMatrix, [0, 0, -1.5]);
 
       // New operation for rotating the Model-View matrix
-      mat4.rotate(modelViewMatrix, modelViewMatrix, angle * Math.PI / 180, [0, 1, 0]);
+      mat4.rotate(modelViewMatrix, modelViewMatrix, angle * Math.PI / 180, [1, 0, 0]);
 
       mat4.copy(normalMatrix, modelViewMatrix);
       mat4.invert(normalMatrix, normalMatrix);
